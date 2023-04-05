@@ -162,6 +162,7 @@ def genesis(reg: str):
     # html_to_json(temporary_source_ag_hymnal_html, ag_hymnal_json)
     json_to_html(ag_hymnal_json, output_ag_hymnal_html)
     for asset_dirs in ("styles", "fonts"):
+        # $ ln -rs $(pwd)/hymnal/assets/styles $(pwd)/hymnal/{reg}/styles
         copytree(
             src=pgm_root / f"hymnal/{reg}/{asset_dirs}",
             dst=pgm_root / f"dist/{reg}/{asset_dirs}",
@@ -172,7 +173,7 @@ def genesis(reg: str):
 
 if __name__ == "__main__":
     pgm_root = Path(__file__).parent.parent
-    registers = ["ag", "yth"]
+    registers = ("ag", "yth", "cnv")
     for reg in registers:
         genesis(reg)
 
