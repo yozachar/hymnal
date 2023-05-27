@@ -9,6 +9,7 @@ from json import dump, load
 from shutil import copytree
 from pathlib import Path
 from typing import List
+from os import getenv
 
 # external
 from jinja2 import Environment, PackageLoader, select_autoescape
@@ -154,10 +155,11 @@ def json_to_html(source: Path, destination: Path):
 
 
 def genesis(reg: str):
+    base = "dist/" if getenv("CI", "false") == "true" else "dist/hymnal/"
     # temporary_source_ag_hymnal_html = pgm_root / f"hymnal/temp/{reg}/html"
     ag_hymnal_json = pgm_root / f"hymnal/{reg}"
     # ag_hymnal_json.mkdir(parents=True, exist_ok=True)
-    output_ag_hymnal_html = pgm_root / f"dist/{reg}"
+    output_ag_hymnal_html = pgm_root / f"{base}{reg}"
     output_ag_hymnal_html.mkdir(parents=True, exist_ok=True)
     # html_to_json(temporary_source_ag_hymnal_html, ag_hymnal_json)
     json_to_html(ag_hymnal_json, output_ag_hymnal_html)
@@ -165,10 +167,10 @@ def genesis(reg: str):
         # $ ln -rs $(pwd)/hymnal/assets/styles $(pwd)/hymnal/{reg}/styles
         copytree(
             src=pgm_root / f"hymnal/{reg}/{asset_dirs}",
-            dst=pgm_root / f"dist/{reg}/{asset_dirs}",
+            dst=pgm_root / f"{base}{reg}/{asset_dirs}",
             dirs_exist_ok=True,
         )
-    (pgm_root / "dist/lib/reveal.js").mkdir(parents=True, exist_ok=True)
+    (pgm_root / f"{base}lib/reveal.js").mkdir(parents=True, exist_ok=True)
 
 
 if __name__ == "__main__":
