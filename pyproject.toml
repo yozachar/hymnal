@@ -1,23 +1,14 @@
-[tool.poetry]
+[project]
 name = "hymnal"
 version = "0.4.0"
-description = "Just a hymnal"
-authors = ["Jovial Joe Jayarson <jovial7joe@hotmail.com>"]
-license = "MIT"
+description = "Christian hymnal"
+authors = [{ name = "Jovial Joe Jayarson", email = "jovial7joe@hotmail.com" }]
+dependencies = ["jinja2>=3.1.2"]
+requires-python = ">=3.11"
 readme = "README.md"
+license = { text = "GPL-3.0-or-later" }
 
-[tool.poetry.dependencies]
-python = "^3.11"
-lxml = "^4.9.2"
-beautifulsoup4 = "^4.12.2"
-jinja2 = "^3.1.2"
-
-
-[tool.poetry.group.dev.dependencies]
-bandit = "^1.7.5"
-black = "^23.3.0"
-pylint = "^2.17.4"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[project.optional-dependencies]
+dev = ["beautifulsoup4>=4.12.2", "lxml>=4.9.3"]
+local-dev = ["ipykernel>=6.24.0"]
+tooling = ["bandit>=1.7.5", "black>=23.7.0", "ruff>=0.0.278"]
