@@ -31,46 +31,36 @@ jobs:
         working-directory: ${{ env.BUILD_PATH }}
     steps:
       # Checkout repository
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
       # Setup Node
-      - name: Setup Node
+      - name: Setup Node 18
         uses: actions/setup-node@v3
         with:
           node-version: "18"
-      # Enable pNpM
-      - name: Enable pNpM
-        run: corepack enable
-      # Setup Pages
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      # Install dependencies
-      - name: Install dependencies
-        run: pnpm install
-      # Build static page
-      - name: Build static pages
-        run: pnpm build --base /hymnal/
       # Setup Python
       - name: Setup Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-      # Install & configure Poetry
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-        with:
-          version: 1.3.2
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-      # Install dependencies
-      - name: Install dependencies
-        run: poetry install --no-interaction --only main --no-root
-      # Post build steps
-      - name: Post build step
+      # Build landing page
+      - name: Build frontend
         run: |
-          source .venv/bin/activate
-          python hymnal/main.py
+          corepack enable
+          pnpm install
+          pnpm build --base /hymnal/
+      # Populate HTML template with JSON
+      - name: Generate static content
+        run: |
+          python -m venv .venv
+          . ./.venv/bin/activate
+          pip install .
+          python src/hymnal/main.py
+          deactivate
           git clone --depth 1 "https://github.com/hakimel/reveal.js.git" dist/lib/reveal.js
+      # Setup Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
       # Upload static page
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
