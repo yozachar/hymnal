@@ -32,6 +32,7 @@ class Hymn:
     """Hymn."""
 
     number: int = -1
+    writer: str = ""
     starts: str = ""
     refrain: List[str] = field(default_factory=list[str])
     verses: List[Verse] = field(default_factory=list[Verse])
