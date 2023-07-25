@@ -1,12 +1,12 @@
 [project]
 name = "hymnal"
-version = "0.4.0"
+version = "0.1.5"
 description = "Christian hymnal"
 authors = [{ name = "Jovial Joe Jayarson", email = "jovial7joe@hotmail.com" }]
 dependencies = ["jinja2>=3.1.2"]
 requires-python = ">=3.11"
 readme = "README.md"
-license = { text = "GPL-3.0-or-later" }
+license = { text = "AGPL-3.0-only" }
 
 [project.optional-dependencies]
 dev = ["beautifulsoup4>=4.12.2", "lxml>=4.9.3"]
