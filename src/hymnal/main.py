@@ -96,7 +96,7 @@ def _json_song_parser(hymn_path: Path, hymnal_name: str):
     """Parse songs from JSON files."""
     with open(file=hymn_path, mode="rb") as json_file:
         hymn = Hymn(**load(json_file))
-    if hymn.number == -1 or len(hymn.verses) < 1:
+    if hymn.number == -1:
         return (
             "<html>"
             + "<head><title>BAD FILE</title></head>"
@@ -109,43 +109,31 @@ def _json_song_parser(hymn_path: Path, hymnal_name: str):
         trim_blocks=True,
         lstrip_blocks=True,
     )
-    common_args = {
-        "hymnal": hymnal_name,
-        "hymn_number": hymn.number,
-        "start_tag": "<h3>",
-        "end_tag": "</h3>",
-        "relative_path": "..",
-    }
-    if not hymn.refrain:
-        return cathedral.get_template("start-at-verse-without-refrain.html.j2").render(
-            # main section
-            verses=hymn.verses[1:],
-            # side section
-            first_verse=hymn.verses[0],
-            # common
-            **common_args,
+    song_template = (
+        (
+            "start-at-refrain-without-verses.html.j2"
+            if not hymn.verses
+            else "start-at-refrain.html.j2"
         )
-    if hymn.starts == "refrain":
-        return cathedral.get_template("start-at-refrain.html.j2").render(
-            # main section
-            verses=hymn.verses,
-            # side section
-            refrain=hymn.refrain,
-            start_ref_tag="<h3><em>",
-            end_ref_tag="</em></h3>",
-            # common
-            **common_args,
+        if hymn.starts == "refrain"
+        else (
+            "start-at-verse-without-refrain.html.j2"
+            if not hymn.refrain
+            else "start-at-verse-with-refrain.html.j2"
         )
-    return cathedral.get_template("start-at-verse-with-refrain.html.j2").render(
-        # main section
-        first_verse=hymn.verses[0],
-        verses=hymn.verses[1:],
-        # side section
-        refrain=hymn.refrain,
+    )
+    # .render(**kwargs) ignores keys not found in template
+    return cathedral.get_template(song_template).render(
+        hymn_number=hymn.number,
+        hymnal_name=hymnal_name,
+        relative_path="..",
+        start_tag="<h3>",
+        first_verse=hymn.verses[0] if hymn.verses else None,
+        verses=hymn.verses if hymn.starts == "refrain" else hymn.verses[1:],
+        end_tag="</h3>",
         start_ref_tag="<h3><em>",
-        end_ref_tag="<h3><em>",
-        # common
-        **common_args,
+        refrain=hymn.refrain,
+        end_ref_tag="</em></h3>",
     )
 
 
