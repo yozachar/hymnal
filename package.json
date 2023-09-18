@@ -16,7 +16,7 @@
   "author": "Jovial Joe Jayarson",
   "license": "AGPL-3.0-only",
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^2.4.5",
+    "@sveltejs/vite-plugin-svelte": "^2.4.6",
     "@tsconfig/svelte": "^4.0.1",
     "autoprefixer": "^10.4.15",
     "postcss": "^8.4.29",
