@@ -1,4 +1,4 @@
-# [Hymnal](https://joe733.github.io/hymnal/)
+# [Hymnal](https://yozachar.github.io/hymnal/)
 
 > _O sing unto the Lord a new song..._
 
@@ -13,7 +13,7 @@
 ## Clone repository
 
 ```sh
-git clone "https://github.com/joe733/hymnal.git"
+git clone "https://github.com/yozachar/hymnal.git"
 cd hymnal
 ```
 
