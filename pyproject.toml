@@ -1,6 +1,6 @@
 [project]
 name = "hymnal"
-version = "0.1.6"
+version = "0.1.7"
 description = "Christian hymnal"
 authors = [{ name = "Jovial Joe Jayarson", email = "jovial7joe@hotmail.com" }]
 dependencies = ["jinja2>=3.1.2"]
@@ -13,4 +13,4 @@ extra = ["beautifulsoup4>=4.12.2", "lxml>=4.9.3"]
 
 [tool.pdm.dev-dependencies]
 dev = ["ipykernel>=6.25.2"]
-tooling = ["bandit>=1.7.5", "black>=23.9.1", "ruff>=0.0.291"]
+tooling = ["bandit>=1.7.5", "black>=23.9.1", "ruff>=0.0.292"]

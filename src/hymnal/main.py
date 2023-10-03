@@ -139,7 +139,7 @@ def _json_song_parser(hymn_path: Path, hymnal_name: str):
 
 def json_to_html(source: Path, destination: Path, hymnal_name: str):
     """Convert JSON to HTML."""
-    for idx in range(1, 1632):
+    for idx in range(1, 2000): # NOTE: this is not cool!
         hymn_path = source / f"{str(idx).zfill(4)}.json"
         if not hymn_path.exists() or not hymn_path.is_file():
             continue
@@ -174,6 +174,7 @@ if __name__ == "__main__":
     source_root = Path(__file__).parent.parent.parent
     for slug, hymnal_name in {
         "ag": "Athmeeya Geethangal",
+        "other": "Other",
         # "yth": "Youth Program",
         # "cnv": "Convention",
     }.items():
