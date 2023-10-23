@@ -13,4 +13,4 @@ extra = ["beautifulsoup4>=4.12.2", "lxml>=4.9.3"]
 
 [tool.pdm.dev-dependencies]
 dev = ["ipykernel>=6.25.2"]
-tooling = ["bandit>=1.7.5", "black>=23.9.1", "ruff>=0.0.292"]
+tooling = ["bandit>=1.7.5", "black>=23.10.0", "ruff>=0.1.1"]
