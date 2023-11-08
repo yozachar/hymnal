@@ -12,5 +12,5 @@ license = { text = "AGPL-3.0-only" }
 extra = ["beautifulsoup4>=4.12.2", "lxml>=4.9.3"]
 
 [tool.pdm.dev-dependencies]
-dev = ["ipykernel>=6.25.2"]
-tooling = ["bandit>=1.7.5", "black>=23.10.0", "ruff>=0.1.1"]
+dev = ["ipykernel>=6.26.0"]
+tooling = ["bandit>=1.7.5", "black>=23.10.1", "ruff>=0.1.4"]

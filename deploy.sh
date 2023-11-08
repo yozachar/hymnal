@@ -19,8 +19,8 @@ rm -rf ./dist/
 # build
 echo -e "${BLUE}==> Build & Generate${RESET}"
 pnpm build &&
-  pdm run python src/hymnal/main.py &&
-  git clone --depth 1 "https://github.com/hakimel/reveal.js.git" dist/hymnal/lib/reveal.js
+  pdm run python ./src/hymnal/main.py &&
+  git clone --depth 1 "https://github.com/hakimel/reveal.js.git" ./dist/hymnal/lib/reveal.js
 
 # deploy
 commands=("docker" "podman")
