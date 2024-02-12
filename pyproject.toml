@@ -3,14 +3,14 @@ name = "hymnal"
 version = "0.1.7"
 description = "Christian hymnal"
 authors = [{ name = "Jovial Joe Jayarson", email = "jovial7joe@hotmail.com" }]
-dependencies = ["jinja2>=3.1.2"]
+dependencies = ["jinja2>=3.1.3"]
 requires-python = ">=3.11"
 readme = "README.md"
 license = { text = "AGPL-3.0-only" }
 
 [project.optional-dependencies]
-extra = ["beautifulsoup4>=4.12.2", "lxml>=4.9.3"]
+extra = ["beautifulsoup4>=4.12.3", "lxml>=5.1.0"]
 
 [tool.pdm.dev-dependencies]
-dev = ["ipykernel>=6.26.0"]
-tooling = ["bandit>=1.7.5", "black>=23.10.1", "ruff>=0.1.4"]
+dev = ["ipykernel>=6.29.2"]
+tooling = ["bandit>=1.7.7", "black>=24.2.0", "ruff>=0.2.1"]
