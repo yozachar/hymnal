@@ -21,6 +21,7 @@
 </main>
 
 <style>
+  @import "../hymnal/assets/fonts/NotoSerifMalayalam/NotoSerifMalayalam.css";
   .heading {
     font-family: NotoSerifMalayalam;
     font-size: clamp(8px, 8vw, 72px);
