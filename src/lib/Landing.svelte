@@ -1,11 +1,10 @@
 <script lang="ts">
-  // local
   import SearchBox from "./SearchBox.svelte";
 
   let searchTerm = "";
 
   const songNumberList = Array.from({ length: 1631 }, (_, i) => i + 1).map(
-    (num) => num.toString()
+    (num) => num.toString(),
   );
 
   $: handleModifiedSearchTerm = (event: Event) => {
@@ -13,7 +12,7 @@
   };
 
   $: filteredCards = songNumberList.filter((songNumberWhich) =>
-    songNumberWhich.includes(searchTerm)
+    songNumberWhich.includes(searchTerm),
   );
 </script>
 
@@ -23,51 +22,58 @@
   <div class="card-container">
     {#each filteredCards as filteredSongs}
       <a href="/hymnal/ag/{filteredSongs.padStart(4, '0')}.html">
-        <h3
-          class="song-number text-gray-300 bg-gray-50 hover:text-black hover:bg-white dark:text-gray-500 dark:bg-gray-700 dark:hover:text-white dark:hover:bg-gray-600 rounded-lg shadow-md transition duration-250 ease-in-out"
-        >
-          {filteredSongs}
-        </h3>
+        <h3 class="song-number">{filteredSongs}</h3>
       </a>
     {/each}
   </div>
 </div>
 
-<style lang="postcss">
-  :root {
-    --body-background: #222;
-    --card-background: #333;
-    --ring-offset-shadow: 0 0 #0000;
-    --ring-shadow: 0 0 #0000;
-    --text-color: #444;
-  }
+<style>
   .card-grid-container {
-    @apply pt-8;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
   }
   .card-container {
     display: grid;
-    grid-gap: 1.5em;
-    grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(5.25rem, 1fr));
   }
-
   .card-container > a {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    text-align: center;
     text-decoration: none;
   }
-
   .song-number {
     align-items: center;
+    background-color: #374151;
+    border-radius: 0.5rem;
+    color: #6b7280;
     font-size: 2em;
     height: 100%;
+    padding: 0.5rem;
+    transform: scale(100%);
+    transition: 0.2s ease-in-out;
     width: 100%;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  .song-number:is(:hover, :focus-within) {
+    background-color: #242424;
+    box-shadow: none;
+    color: #ffffff;
+    transform: scale(110%);
+    transition: 0.2s ease-in-out;
   }
 
-  .song-number:is(:hover, :focus-within) {
-    background-position: 0;
-    transform: scale(110%);
-    transition: all 250ms ease-in-out;
+  /* Dark theme styles */
+  @media (prefers-color-scheme: light) {
+    .song-number {
+      background-color: #f9fafb;
+      color: #d1d5db;
+    }
+    .song-number:is(:hover, :focus-within) {
+      background-color: #ffffff;
+      box-shadow: none;
+      color: #000000;
+    }
   }
 </style>

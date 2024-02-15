@@ -1,9 +1,4 @@
-// local
-
-// css
-import "./app.postcss";
-
-// svelte
+import "./app.css";
 import App from "./App.svelte";
 
 const app = new App({
