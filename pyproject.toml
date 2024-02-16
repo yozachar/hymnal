@@ -1,6 +1,6 @@
 [project]
 name = "hymnal"
-version = "0.1.7"
+version = "0.2.0"
 description = "multilingual christian hymnal"
 authors = [{ name = "Jovial Joe Jayarson", email = "jovial7joe@hotmail.com" }]
 license = { text = "AGPL-3.0-only" }
