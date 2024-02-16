@@ -1,18 +1,16 @@
 <script lang="ts">
-  import SearchBox from "./SearchBox.svelte";
+  import SearchBox from "$lib/components/SearchBox.svelte";
 
   let searchTerm = "";
 
-  const songNumberList = Array.from({ length: 1631 }, (_, i) => i + 1).map(
-    (num) => num.toString(),
-  );
+  const songNumberList = Array.from({ length: 1631 }, (_, i) => i + 1).map((num) => num.toString());
 
   $: handleModifiedSearchTerm = (event: Event) => {
     searchTerm = (event as CustomEvent).detail;
   };
 
   $: filteredCards = songNumberList.filter((songNumberWhich) =>
-    songNumberWhich.includes(searchTerm),
+    songNumberWhich.includes(searchTerm)
   );
 </script>
 
@@ -30,8 +28,7 @@
 
 <style>
   .card-grid-container {
-    padding-bottom: 2rem;
-    padding-top: 2rem;
+    padding: 2rem;
   }
   .card-container {
     display: grid;

@@ -41,12 +41,14 @@
   .search-container {
     position: relative;
     width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
   .search-icon-container {
     align-items: center;
     bottom: 0;
     display: flex;
-    left: 0;
+    left: 2rem;
     padding-left: 0.75rem;
     pointer-events: none;
     position: absolute;

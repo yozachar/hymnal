@@ -186,7 +186,8 @@ node_modules/
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-# rtx
+# mise/rtx
+.mise.toml
 .rtx.toml
 
 # asdf
