@@ -22,7 +22,7 @@
       <section>
         {% for verse in verses %}
         <section id="verse-{{ loop.index + 1 }}">
-          <p class="verse-no">{{ loop.index + 1 }}.</p>
+          <h3 class="verse-no">{{ loop.index + 1 }}.</h3>
           {% for line in verse.lines %}
           {{ start_tag }}{{ line }}{{ end_tag }}
           {% endfor %}
@@ -31,7 +31,7 @@
       </section>
       <section id="verse-1" class="start-here">
         <h1 class="hymn-no">{{ hymn_number }}</h1>
-        <p class="verse-no">1.</p>
+        <h3 class="verse-no">1.</h3>
         {% for line in first_verse.lines %}
         {{ start_tag }}{{ line }}{{ end_tag }}
         {% endfor %}
@@ -41,8 +41,6 @@
 
   <script src="{{ relative_path }}/lib/reveal.js/dist/reveal.js"></script>
   <script src="{{ relative_path }}/lib/reveal.js/plugin/notes/notes.js"></script>
-  <script src="{{ relative_path }}/lib/reveal.js/plugin/markdown/markdown.js"></script>
-  <script src="{{ relative_path }}/lib/reveal.js/plugin/highlight/highlight.js"></script>
   <script>
     // More info about initialization & config:
     // - https://revealjs.com/initialization/
@@ -51,7 +49,10 @@
       hash: true,
       keyboardCondition: 'focused', // only react to keys when focused
       // Learn about plugins: https://revealjs.com/plugins/
-      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+      plugins: [RevealNotes],
+      scrollActivationWidth: null,
+      disableLayout: true,
+      slideNumber: 'c/t'
     });
     Reveal.slide(1, 0);
   </script>
