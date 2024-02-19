@@ -12,18 +12,20 @@ from hymnal.json2html import j2h_transform
 
 
 def transform(program_root: Path, slug: str, hymnal_name: str):
-    base = "static"
+    base = "static/g11n"
     # temporary_source_hymnal_html = program_root / f"hymnal/temp/{slug}/html"
-    hymnal_json = program_root / f"hymnal/{slug}"
+    hymnal_json = program_root / f"hymnal/g11n/{slug}"
     # hymnal_json.mkdir(parents=True, exist_ok=True)
     output_hymnal_html = program_root / f"{base}/{slug}"
     output_hymnal_html.mkdir(parents=True, exist_ok=True)
     # h2j_transform(temporary_source_hymnal_html, hymnal_json)
     j2h_transform(hymnal_json, output_hymnal_html, hymnal_name)
     for asset_dirs in ("fonts", "styles"):
-        # $ ln -rs $(pwd)/hymnal/assets/styles $(pwd)/hymnal/{slug}/styles
+        # from the project root run
+        # $ slug='mal/ag/v16'
+        # $ ln -rfs $(pwd)/hymnal/assets/styles $(pwd)/hymnal/g11n/$slug/styles
         copytree(
-            src=program_root / f"hymnal/{slug}/{asset_dirs}",
+            src=program_root / f"hymnal/g11n/{slug}/{asset_dirs}",
             dst=program_root / f"{base}/{slug}/{asset_dirs}",
             dirs_exist_ok=True,
         )
@@ -55,7 +57,7 @@ def transform(program_root: Path, slug: str, hymnal_name: str):
 if __name__ == "__main__":
     source_root = Path(__file__).parent.parent.parent
     for slug, hymnal_name in {
-        "ag": "ആത്മീയ ഗീതങ്ങൾ",
+        "mal/ag/v16": "ആത്മീയ ഗീതങ്ങൾ",
         # "other": "Other",
         # "yth": "Youth Program",
         # "cnv": "Convention",

@@ -197,5 +197,4 @@ vite.config.ts.timestamp-*
 hymnal/temp/
 scripts/
 # songbook - related
-static/lib/
-static/ag/
+static/g11n/

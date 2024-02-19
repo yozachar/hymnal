@@ -19,24 +19,20 @@
     <SongSelectionGrid />
   </main>
   <footer>
-    <h5 class="copyleft-footer">
+    <div class="copyleft-footer">
       All songs are owned by their respective authors<br />
       <a href="https://en.wikipedia.org/wiki/Copyleft"
         >Proprietary modifications to the source-code will NOT be allowed</a
       >
       |
       <a href="https://github.com/yozachar/hymnal/blob/main/LICENSE">🄯 Jovial Joe Jayarson</a>
-    </h5>
+    </div>
   </footer>
 </div>
 
 <style>
   a {
-    color: #ffffff;
     text-decoration: none;
-  }
-  a:hover {
-    color: cyan;
   }
   footer {
     margin-top: auto;
@@ -51,9 +47,9 @@
     text-align: center;
   }
   .hymnal-description {
-    color: #ffffff;
+    color: gray;
     font-family: NotoSerifMalayalam;
-    font-size: clamp(0.7rem, 1.7svw, 2rem);
+    font-size: 1.5svw;
     padding: 1rem 2rem 3rem;
   }
   .hymnal-publisher {
@@ -62,14 +58,17 @@
   .hymnal-name {
     color: #ffffff;
     font-family: NotoSerifMalayalam;
-    font-size: 3.5rem;
-    font-size: clamp(2.5rem, 8svw, 10rem);
+    font-size: 6svw;
     font-weight: 700;
-    padding-top: 3rem;
+    padding: 3rem 2rem 0.5rem;
   }
-  .copyleft-footer {
-    color: #ffffff;
+  .copyleft-footer,
+  .copyleft-footer > a {
+    color: gray;
     padding: 1rem;
+  }
+  .copyleft-footer > a:hover {
+    color: cyan;
   }
 
   /* Light theme styles */
@@ -77,20 +76,14 @@
     a {
       color: #000000;
     }
-    a:hover {
-      color: darkcyan;
-    }
     .app-container {
       background-color: #ffffff;
     }
     .hymnal-name {
       color: #000000;
     }
-    .hymnal-description {
-      color: #000000;
-    }
-    .copyleft-footer {
-      color: #000000;
+    .copyleft-footer > a:hover {
+      color: darkcyan;
     }
   }
 </style>
