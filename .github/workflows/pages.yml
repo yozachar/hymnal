@@ -21,6 +21,7 @@ concurrency:
 
 env:
   BUILD_PATH: "." # default value when not using subfolders
+  CARGO_TERM_COLOR: always
 
 jobs:
   build:
@@ -38,19 +39,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-      # Setup Python
-      - name: Setup Python 3.12
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
       # Populate HTML template with JSON
       - name: Generate static content
-        run: |
-          python -m venv .venv
-          . ./.venv/bin/activate
-          pip install .
-          python src/hymnal/main.py
-          deactivate
+        run: cargo run
       # Build frontend
       - name: Build frontend
         run: |

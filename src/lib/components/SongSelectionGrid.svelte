@@ -3,7 +3,7 @@
   import { base } from "$app/paths";
 
   let searchTerm = "";
-
+  let slug = "mal";
   const songNumberList = Array.from({ length: 1631 }, (_, i) => i + 1).map((num) => num.toString());
 
   $: handleModifiedSearchTerm = (event: Event) => {
@@ -20,7 +20,7 @@
 <div class="card-grid-container">
   <div class="card-container">
     {#each filteredCards as filteredSongs}
-      <a href="{base}/g11n/mal/ag/v16/{filteredSongs.padStart(4, '0')}.html">
+      <a href="{base}/g11n/{slug}/{filteredSongs.padStart(7, '0')}.html">
         <h3 class="song-number">{filteredSongs}</h3>
       </a>
     {/each}

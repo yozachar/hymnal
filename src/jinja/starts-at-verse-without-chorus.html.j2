@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>{{ hymn_number }} - {{ hymnal_name }}</title>
+
+  <link rel="icon" type="image/svg+xml" href="{{ relative_path }}/favicon.svg" />
+  <link rel="stylesheet" href="{{ relative_path }}/lib/reveal.js/dist/reset.css" />
+  <link rel="stylesheet" href="{{ relative_path }}/lib/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="{{ relative_path }}/styles/theme.css" />
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="{{ relative_path }}/lib/reveal.js/plugin/highlight/monokai.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        {%- for verse in verses %}
+        <section id="verse-{{ loop.index + 1 }}">
+          <h3 class="verse-no">{{ loop.index + 1 }}.</h3>
+          <div class="r-fit-text lines verse-{{ loop.index + 1 }}">
+            {%- for line in verse %}
+            {{ line }}<br />
+            {%- endfor %}
+          </div>
+        </section>
+        {%- endfor %}
+      </section>
+      <section id="verse-1" class="start-here">
+        <h1 class="hymn-no">{{ hymn_number }}</h1>
+        <h3 class="verse-no">1.</h3>
+        <div class="r-fit-text lines verse-1">
+          {%- for line in first_verse %}
+          {{ line }}<br />
+          {%- endfor %}
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="{{ relative_path }}/lib/reveal.js/dist/reveal.js"></script>
+  <script src="{{ relative_path }}/lib/reveal.js/plugin/notes/notes.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      keyboardCondition: 'focused', // only react to keys when focused
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealNotes],
+      scrollActivationWidth: null,
+      disableLayout: true,
+      slideNumber: 'c/t'
+    });
+    Reveal.slide(1, 0);
+  </script>
+</body>
+
+</html>
