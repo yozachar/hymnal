@@ -47,13 +47,13 @@ def _json_song_parser(hymn_path: Path, hymnal_name: str):
         hymn_number=hymn.number,
         hymnal_name=hymnal_name,
         relative_path="..",
-        start_tag="<h3>",
+        start_tag='<p class="line">',
         first_verse=hymn.verses[0] if hymn.verses else None,
         verses=hymn.verses if hymn.starts == "refrain" else hymn.verses[1:],
-        end_tag="</h3>",
-        start_ref_tag="<h3><em>",
+        end_tag="</p>",
+        start_ref_tag='<p class="line"><em>',
         refrain=hymn.refrain,
-        end_ref_tag="</em></h3>",
+        end_ref_tag="</em></p>",
     )
 
 

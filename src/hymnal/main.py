@@ -20,7 +20,7 @@ def transform(program_root: Path, slug: str, hymnal_name: str):
     output_hymnal_html.mkdir(parents=True, exist_ok=True)
     # h2j_transform(temporary_source_hymnal_html, hymnal_json)
     j2h_transform(hymnal_json, output_hymnal_html, hymnal_name)
-    for asset_dirs in ("styles", "fonts"):
+    for asset_dirs in ("fonts", "styles"):
         # $ ln -rs $(pwd)/hymnal/assets/styles $(pwd)/hymnal/{slug}/styles
         copytree(
             src=program_root / f"hymnal/{slug}/{asset_dirs}",

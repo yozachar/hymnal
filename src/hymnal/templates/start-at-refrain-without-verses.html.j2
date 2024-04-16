@@ -30,8 +30,6 @@
 
   <script src="{{ relative_path }}/lib/reveal.js/dist/reveal.js"></script>
   <script src="{{ relative_path }}/lib/reveal.js/plugin/notes/notes.js"></script>
-  <script src="{{ relative_path }}/lib/reveal.js/plugin/markdown/markdown.js"></script>
-  <script src="{{ relative_path }}/lib/reveal.js/plugin/highlight/highlight.js"></script>
   <script>
     // More info about initialization & config:
     // - https://revealjs.com/initialization/
@@ -40,7 +38,10 @@
       hash: true,
       keyboardCondition: 'focused', // only react to keys when focused
       // Learn about plugins: https://revealjs.com/plugins/
-      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+      plugins: [RevealNotes],
+      scrollActivationWidth: null,
+      disableLayout: true,
+      slideNumber: 'c/t'
     });
     Reveal.slide(0, 0);
   </script>
