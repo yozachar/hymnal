@@ -34,7 +34,7 @@ section.has-light-background h6 {
   --r-heading-text-shadow: none;
   --r-heading-font-weight: 600;
   --r-heading1-text-shadow: none;
-  --r-heading1-size: 3.5vmax; /* 2rem; 32px; */
+  --r-heading1-size: clamp(0.5em, 10svh, 2.5em); /* 3.5vmax; 2rem; 32px; */
   --r-heading2-size: 1.5rem; /* 24px; */
   --r-heading3-size: 1.25rem; /* 20px; */
   --r-heading4-size: 1.125rem; /* 18px; */
@@ -408,5 +408,5 @@ section.has-light-background h6 {
 }
 
 .reveal .slides .line {
-  font-size: 2vmax;
+  font-size: clamp(0.5em, 4.3svh, 1.3em); /* 2vmax; */
 }
