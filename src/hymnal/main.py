@@ -73,7 +73,7 @@ class Hymn:
 
 # def html_to_json(source: Path, destination: Path):
 #     """Convert HTML to JSON."""
-#     for idx in range(1, 2001):
+#     for idx in range(1, 1632):
 #         hymn_path = source / f"{str(idx).zfill(4)}.html"
 #         if not hymn_path.exists() or not hymn_path.is_file():
 #             continue
@@ -139,7 +139,7 @@ def _json_song_parser(hymn_path: Path, hymnal_name: str):
 
 def json_to_html(source: Path, destination: Path, hymnal_name: str):
     """Convert JSON to HTML."""
-    for idx in range(1, 2001):
+    for idx in range(1, 1632):
         hymn_path = source / f"{str(idx).zfill(4)}.json"
         if not hymn_path.exists() or not hymn_path.is_file():
             continue
