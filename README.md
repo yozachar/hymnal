@@ -1,42 +1,39 @@
-# Hymnal
+# [Hymnal](https://joe733.github.io/hymnal/)
 
-Just a hymnal.
+> _O sing unto the Lord a new song..._
 
-## Local setup
+## Requirements
 
-### Requirements
+- [git](https://git-scm.com/)
+- [pnpm](https://pnpm.io/)
+- [PDM](https://pdm.fming.dev/latest/)
+- [python](https://www.python.org/)
+- [podman-compose](https://github.com/containers/podman-compose) / [docker-compose](https://github.com/docker/compose)
 
-- Git
-- pnpm
-- pdm
-- Python
-- Podman / Docker
-- Podman-Compose / Docker-Compose
-
-### Clone repository
+## Clone repository
 
 ```sh
 git clone "https://github.com/joe733/hymnal.git"
 cd hymnal
 ```
 
-### Install dependencies
+## Install dependencies
 
 ```sh
 pnpm install && pdm install
 ```
 
-### Build & Deploy
+## Build & Deploy
 
-#### Automated
+### Automated
 
 ```sh
 ./deploy.sh
 ```
 
-#### Manual
+### Manual
 
-Build project
+Build project.
 
 ```sh
 eval $(pdm venv activate)
@@ -45,15 +42,13 @@ python src/hymnal/main.py
 git clone --depth 1 "https://github.com/hakimel/reveal.js.git" dist/hymnal/lib/reveal.js
 ```
 
-Deploy project (start web-server)
+Start web-server. Open <http://localhost:8080> in your browser. Replace `podman` with `docker`, if you're using the latter.
 
 ```sh
 podman-compose -p hymnal -f ./compose.yaml up -d
 ```
 
-Open <http://localhost:8080> in your browser.
-
-### Take down web-server
+Take down web-server.
 
 ```sh
 podman-compose -p hymnal -f ./compose.yaml down
