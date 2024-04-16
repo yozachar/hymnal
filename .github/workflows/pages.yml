@@ -69,7 +69,7 @@ jobs:
       - name: Post build step
         run: |
           source .venv/bin/activate
-          python hymnal/converter.py
+          python hymnal/main.py
           git clone --depth 1 "https://github.com/hakimel/reveal.js.git" dist/lib/reveal.js
       # Upload static page
       - name: Upload artifact

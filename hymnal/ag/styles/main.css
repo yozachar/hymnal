@@ -1,0 +1,12 @@
+/* load dark.css if the user prefers dark mode */
+@media (prefers-color-scheme: dark) {
+  @import "./dark.css";
+}
+
+/* load light.css if the user prefers light mode */
+@media (prefers-color-scheme: light) {
+  @import "./light.css";
+}
+
+/* fallback to dark.css if the user's preferred color scheme is not detected */
+@import "./dark.css";

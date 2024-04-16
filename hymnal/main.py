@@ -96,7 +96,7 @@ def _json_song_parser(hymn_path: Path):
         hymn = Hymn(**load(ag_f))
 
     jj_env = Environment(
-        loader=PackageLoader("converter"),
+        loader=PackageLoader("main"),
         autoescape=select_autoescape(),
         trim_blocks=True,
         lstrip_blocks=True,
