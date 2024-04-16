@@ -1,6 +1,10 @@
-import tailwindcss from "tailwindcss";
+// external
 import autoprefixer from "autoprefixer";
+import tailwind from "tailwindcss";
+
+// local
+import tailwindConfig from "./tailwind.config.cjs";
 
 export default {
-  plugins: { tailwindcss, autoprefixer },
+  plugins: [tailwind(tailwindConfig), autoprefixer],
 };

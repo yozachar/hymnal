@@ -1,50 +1,29 @@
 <script lang="ts">
-  import svelteLogo from "./assets/svelte.svg";
-  import viteLogo from "./assets/vite.svg";
-  import Counter from "./lib/Counter.svelte";
+  import Landing from "./lib/Landing.svelte";
 </script>
 
 <main>
-  <div class="flex justify-center">
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a
-      href="https://github.com/sveltejs/kit#readme"
-      target="_blank"
-      rel="noreferrer">SvelteKit</a
-    >, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">Click on the Vite and Svelte logos to learn more</p>
+  <article>
+    <h1
+      class="heading pb-10 font-bold text-6xl text-center text-black dark:text-white"
+    >
+      ആത്മീയ ഗീതങ്ങൾ
+    </h1>
+    <Landing />
+  </article>
+  <footer>
+    <h5 class="m-10">© Jovial Joe Jayarson</h5>
+  </footer>
 </main>
 
 <style>
-  .logo {
-    /* height: 6em;
-    padding: 1.5em; */
-    @apply h-32 p-4;
-    will-change: filter;
-    transition: filter 300ms;
+  .heading {
+    font-family: NotoSerifMalayalam;
+    font-size: clamp(8px, 8vw, 72px);
   }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
+  @media screen and (max-width: 768px) {
+    .heading {
+      width: 100%;
+    }
   }
 </style>
