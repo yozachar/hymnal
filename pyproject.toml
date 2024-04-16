@@ -11,4 +11,4 @@ license = { text = "AGPL-3.0-only" }
 [project.optional-dependencies]
 dev = ["beautifulsoup4>=4.12.2", "lxml>=4.9.3"]
 local-dev = ["ipykernel>=6.25.0"]
-tooling = ["bandit>=1.7.5", "black>=23.7.0", "ruff>=0.0.280"]
+tooling = ["bandit>=1.7.5", "black>=23.7.0", "ruff>=0.0.282"]
