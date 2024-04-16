@@ -30,6 +30,7 @@ class Hymn:
     """
 
     hymn_number: int
+    starts_on: str
     chorus: List[str] = field(default_factory=list[str])
     stanzas: List[Stanza] = field(default_factory=list[Stanza])
 
@@ -43,8 +44,14 @@ def song_parser(hymn_file: Path) -> Hymn:
         _html_content = _html_file.read()
 
     _soup = BeautifulSoup(_html_content, "lxml")
-    _hymn_no = int(_hyn.text) if (_hyn := _soup.select_one("h1.hymn-no")) else -1
-    hymn = Hymn(hymn_number=_hymn_no)
+    hymn = Hymn(
+        hymn_number=int(_hyn.text) if (_hyn := _soup.select_one("h1.hymn-no")) else -1,
+        starts_on=(
+            "stanza"
+            if ('<section id="stanza-1" class="s-hymn">' in _html_content)
+            else "chorus"
+        ),
+    )
 
     for _stanza_section in _soup.select('section[id^="stanza-"]'):
         _stanza_number = (
@@ -53,6 +60,7 @@ def song_parser(hymn_file: Path) -> Hymn:
             else -1
         )
         _lines = [line.text.strip() for line in _stanza_section.select("h3")]
+        _lines.extend([line.text.strip() for line in _stanza_section.select("h4")])
         hymn.stanzas.append(Stanza(stanza_number=_stanza_number, lines=_lines))
 
     if (chorus_section := _soup.select_one('section[id^="chorus"]')) and (
@@ -60,18 +68,21 @@ def song_parser(hymn_file: Path) -> Hymn:
     ):
         hymn.chorus = [line.text.strip() for line in _verses]
 
+    hymn.stanzas.sort(key=lambda stz: stz.stanza_number)
     return hymn
 
 
-ag_hymnal_dir = Path(__file__).parent.parent / "static/hymnal/ag"
-ag_hymnal_op = Path(__file__).parent / "out"
+ag_hymnal_html = Path(__file__).parent.parent / "static/hymnal/ag"
+ag_hymnal_json = Path(__file__).parent / "ag/json"
+ag_hymnal_json.mkdir(parents=True, exist_ok=True)
 
 for idx in range(1, 2001):
-    hymn_path = ag_hymnal_dir / f"{str(idx).zfill(4)}.html"
-    if hymn_path.exists() and hymn_path.is_file():
-        with open(
-            file=ag_hymnal_op / f"{str(idx).zfill(4)}.json", mode="wt", encoding="utf-8"
-        ) as ag_f:
-            dump(obj=asdict(song_parser(hymn_path)), fp=ag_f, ensure_ascii=False)
+    hymn_path = ag_hymnal_html / f"{str(idx).zfill(4)}.html"
+    if not hymn_path.exists() or not hymn_path.is_file():
+        continue
+    with open(
+        file=ag_hymnal_json / f"{str(idx).zfill(4)}.json", mode="wt", encoding="utf-8"
+    ) as ag_f:
+        dump(obj=asdict(song_parser(hymn_path)), fp=ag_f, ensure_ascii=False)
 
-# pprint(song_parser(ag_hymnal_dir / "0142.html"))
+# pprint(song_parser(ag_hymnal_html / "0142.html"))
