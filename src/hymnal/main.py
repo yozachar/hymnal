@@ -103,7 +103,7 @@ def _json_song_parser(hymn_path: Path, hymnal_name: str):
             + "</html>"
         )
     cathedral = Environment(
-        loader=PackageLoader("hymnal"),
+        loader=PackageLoader("main"),
         autoescape=select_autoescape(),
         trim_blocks=True,
         lstrip_blocks=True,
