@@ -25,7 +25,7 @@
         >Proprietary modifications to the source-code will NOT be allowed</a
       >
       |
-      <a href="https://github.com/yozachar/hymnal/blob/main/LICENSE">🄯 Jovial Joe Jayarson</a>
+      <a href="https://github.com/yozachar/hymnal/blob/main/LICENSE">🄯 Yozachar</a>
     </div>
   </footer>
 </div>
