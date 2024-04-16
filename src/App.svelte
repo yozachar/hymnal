@@ -13,7 +13,7 @@
   </article>
   <footer>
     <h5 class="m-10">
-      <a href="https://github.com/joe733/hymnal/blob/main/LICENSE"
+      <a href="https://github.com/yozachar/hymnal/blob/main/LICENSE"
         >🄯 Jovial Joe Jayarson</a
       >
     </h5>
