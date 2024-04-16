@@ -1,7 +1,7 @@
 {
   "name": "hymnal",
   "private": true,
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Christian hymnal",
   "type": "module",
   "scripts": {
@@ -19,7 +19,7 @@
     "@sveltejs/vite-plugin-svelte": "^2.4.6",
     "@tsconfig/svelte": "^4.0.1",
     "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.30",
+    "postcss": "^8.4.31",
     "postcss-load-config": "^4.0.1",
     "svelte": "^3.59.2",
     "svelte-check": "^3.5.2",
