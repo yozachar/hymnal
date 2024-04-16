@@ -48,9 +48,7 @@ jobs:
         working-directory: ${{ env.BUILD_PATH }}
       # Build static page
       - name: Build static pages
-        run: | 
-          npx envinfo --system --npmPackages '{vite,@vitejs/*}' --binaries --browsers -y
-          pnpm build --debug --base "/hymnal/"
+        run: pnpm build --base "/hymnal/"
         working-directory: ${{ env.BUILD_PATH }}
       # Upload static page
       - name: Upload artifact
