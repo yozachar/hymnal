@@ -51,7 +51,7 @@ jobs:
       - name: Build static pages
         run: pnpm build --base /hymnal/
       # Setup Python
-      - name: Set up Python 3.11
+      - name: Setup Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
