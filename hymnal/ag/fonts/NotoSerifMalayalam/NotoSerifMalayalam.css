@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'NotoSerifMalayalam';
+    src: url('./static/NotoSerifMalayalam-Regular.eot');
+    src: url('./static/NotoSerifMalayalam-Regular.eot?#iefix') format('embedded-opentype'),
+         url('./static/NotoSerifMalayalam-Regular.woff') format('woff'),
+         url('./static/NotoSerifMalayalam-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* @font-face {
+    font-family: 'NotoSerifMalayalam';
+    src: url('./source-sans-pro-italic.eot');
+    src: url('./source-sans-pro-italic.eot?#iefix') format('embedded-opentype'),
+         url('./source-sans-pro-italic.woff') format('woff'),
+         url('./source-sans-pro-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+} */
+
+@font-face {
+    font-family: 'NotoSerifMalayalam';
+    src: url('./static/NotoSerifMalayalam-SemiBold.eot');
+    src: url('./static/NotoSerifMalayalam-SemiBold.eot?#iefix') format('embedded-opentype'),
+         url('./static/NotoSerifMalayalam-SemiBold.woff') format('woff'),
+         url('./static/NotoSerifMalayalam-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* @font-face {
+    font-family: 'NotoSerifMalayalam';
+    src: url('./source-sans-pro-semibolditalic.eot');
+    src: url('./source-sans-pro-semibolditalic.eot?#iefix') format('embedded-opentype'),
+         url('./source-sans-pro-semibolditalic.woff') format('woff'),
+         url('./source-sans-pro-semibolditalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+} */
