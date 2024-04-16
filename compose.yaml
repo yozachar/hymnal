@@ -1,0 +1,8 @@
+services:
+  web:
+    image: docker.io/nginx:alpine-slim
+    container_name: hymnal
+    ports:
+      - "8080:80"
+    volumes:
+      - ./dist:/usr/share/nginx/html:ro
