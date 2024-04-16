@@ -1,6 +1,6 @@
 [project]
 name = "hymnal"
-version = "0.1.5"
+version = "0.1.6"
 description = "Christian hymnal"
 authors = [{ name = "Jovial Joe Jayarson", email = "jovial7joe@hotmail.com" }]
 dependencies = ["jinja2>=3.1.2"]
@@ -10,5 +10,5 @@ license = { text = "AGPL-3.0-only" }
 
 [project.optional-dependencies]
 dev = ["beautifulsoup4>=4.12.2", "lxml>=4.9.3"]
-local-dev = ["ipykernel>=6.24.0"]
-tooling = ["bandit>=1.7.5", "black>=23.7.0", "ruff>=0.0.278"]
+local-dev = ["ipykernel>=6.25.0"]
+tooling = ["bandit>=1.7.5", "black>=23.7.0", "ruff>=0.0.280"]
