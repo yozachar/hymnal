@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "hymnal"
+version = "0.1.0"
+description = "Just a hymnal"
+authors = ["Jovial Joe Jayarson <jovial7joe@hotmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+lxml = "^4.9.2"
+beautifulsoup4 = "^4.11.2"
+jinja2 = "^3.1.2"
+
+
+[tool.poetry.group.dev.dependencies]
+bandit = "^1.7.4"
+black = "^23.1.0"
+pylint = "^2.16.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
