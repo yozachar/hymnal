@@ -10,13 +10,11 @@
   };
 </script>
 
-<div class="search-container relative">
-  <div
-    class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-  >
+<div class="search-container">
+  <div class="search-icon-container">
     <svg
       aria-hidden="true"
-      class="search-icon w-5 h-5 text-gray-500 dark:text-gray-400"
+      class="search-icon"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -31,7 +29,7 @@
   </div>
   <input
     id="search-box"
-    class="search-term block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-3xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    class="search-term"
     type="text"
     placeholder="Enter a song number ..."
     on:input={handleInput}
@@ -40,9 +38,42 @@
 </div>
 
 <style>
-  @media screen and (max-width: 768px) {
-    .search-container {
-      width: 100%;
+  .search-container {
+    position: relative;
+    width: 100%;
+  }
+  .search-icon-container {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    left: 0;
+    padding-left: 0.75rem;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+  }
+  .search-icon {
+    color: #6b7280;
+    /* height: 1.25rem; */
+    width: 1.25rem;
+  }
+  .search-term {
+    background-color: #374151;
+    border-radius: 1.5rem;
+    border: none;
+    color: #ffffff;
+    padding: 1rem 2.5rem;
+    width: 100%;
+  }
+  .search-term:focus-within {
+    border-width: 2px;
+  }
+
+  /* Light theme styles */
+  @media (prefers-color-scheme: light) {
+    .search-term {
+      background-color: #f9fafb;
+      color: #000000;
     }
   }
 </style>
