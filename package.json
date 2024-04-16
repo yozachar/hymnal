@@ -1,6 +1,7 @@
 {
 	"name": "hymnal",
 	"version": "0.0.1",
+	"description": "Just a hymnal",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
