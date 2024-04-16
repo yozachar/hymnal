@@ -1,23 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/images/music.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta itemprop="datePublished" content="2023-03-06" id="date" />
     <meta name="author" content="Jovial Joe Jayarson" />
-    <title>Hymnal</title>
-    <meta property="og:title" content="Hymnal" />
-    <meta property="og:description" content="Christian songbook" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/images/music.svg" />
+
+    <!-- OpenGraph -->
+    <meta name="type" property="og:type" content="website" />
+    <meta name="site_name" property="og:site_name" content="Hymnal" />
     <meta
+      name="image"
       property="og:image"
-      content="https://images.unsplash.com/photo-1520446266423-6daca23fe8c7?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwxfDB8MXxyYW5kb218MHx8dGVzdHx8fHx8fDE2NzgwNjgzNTI&ixlib=rb-4.0.3&q=80&w=1080"
+      content="https://raw.githubusercontent.com/yozachar/hymnal/main/src/assets/images/cover.webp"
     />
-    <meta property="og:url" content="https://yozachar.github.io/hymnal/" />
-    <meta property="og:type" content="website" />
+    <meta
+      name="url"
+      property="og:url"
+      content="https://yozachar.github.io/hymnal/"
+    />
+    <meta
+      name="title"
+      property="og:title"
+      content="Multilingual Christian Songbook"
+    />
+    <meta
+      name="description"
+      property="og:description"
+      content="Verses of faith, sung in worship's glow, guide Christian hearts where grace may flow."
+    />
+
+    <!-- 𝕏/Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@yozachar" />
+    <title>Hymnal</title>
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
+
+<!-- <meta
+  property="og:image"
+  content="https://images.unsplash.com/photo-1520446266423-6daca23fe8c7?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwxfDB8MXxyYW5kb218MHx8dGVzdHx8fHx8fDE2NzgwNjgzNTI&ixlib=rb-4.0.3&q=80&w=1200"
+/> -->
+<!-- Cover photo by Michael Maasen on Unsplash -->
+<!-- https://unsplash.com/license -->
+<!-- Unsplash grants you an irrevocable, nonexclusive, worldwide copyright license to download, copy, modify, distribute, perform, and use photos from Unsplash for free, including for commercial purposes, without permission from or attributing the photographer or Unsplash. This license does not include the right to compile photos from Unsplash to replicate a similar or competing service. -->
