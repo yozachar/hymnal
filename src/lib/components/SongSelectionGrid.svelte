@@ -1,5 +1,6 @@
 <script lang="ts">
   import SearchBox from "$lib/components/SearchBox.svelte";
+  import { base } from "$app/paths";
 
   let searchTerm = "";
 
@@ -19,7 +20,7 @@
 <div class="card-grid-container">
   <div class="card-container">
     {#each filteredCards as filteredSongs}
-      <a href="/hymnal/ag/{filteredSongs.padStart(4, '0')}.html">
+      <a href="{base}/ag/{filteredSongs.padStart(4, '0')}.html">
         <h3 class="song-number">{filteredSongs}</h3>
       </a>
     {/each}

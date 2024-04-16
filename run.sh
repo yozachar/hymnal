@@ -14,13 +14,15 @@ command_exists() {
 }
 
 # cleanup
-rm -rf ./dist/
+rm -rf ./build/
 
 # build
 echo -e "${BLUE}==> Build & Generate${RESET}"
-pnpm build &&
-  pdm run python ./src/hymnal/main.py &&
-  git clone --depth 1 "https://github.com/hakimel/reveal.js.git" ./dist/hymnal/lib/reveal.js
+pdm run python ./src/hymnal/main.py &&
+  pnpm build
+
+# # preview
+# pnpm preview
 
 # deploy
 commands=("docker" "podman")
@@ -37,3 +39,5 @@ for cmd in "${commands[@]}"; do
 done
 echo -e "\n${RED}==> Error: Deploymnet failed${RESET}"
 exit 1
+
+set +e
