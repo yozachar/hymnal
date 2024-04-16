@@ -22,7 +22,7 @@
 <div class="card-grid-container">
   <div class="card-container">
     {#each filteredCards as filteredSongs}
-      <a href="../hymnal/ag/{filteredSongs.padStart(4, '0')}.html">
+      <a href="/ag/{filteredSongs.padStart(4, '0')}.html">
         <h3
           class="song-number text-gray-300 bg-gray-50 hover:text-black hover:bg-white dark:text-gray-500  dark:bg-gray-700 dark:hover:text-white dark:hover:bg-gray-600 rounded-lg shadow-md transition duration-250 ease-in-out"
         >
