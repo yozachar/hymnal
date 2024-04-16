@@ -153,27 +153,33 @@ def json_to_html(source: Path, destination: Path):
             ag_f.write(_json_song_parser(hymn_path))
 
 
-pgm_root = Path(__file__).parent.parent
-# temporary_source_ag_hymnal_html = pgm_root / "hymnal/temp/ag/html"
-ag_hymnal_json = pgm_root / "hymnal/ag"
-# ag_hymnal_json.mkdir(parents=True, exist_ok=True)
-output_ag_hymnal_html = pgm_root / "dist/ag"
-output_ag_hymnal_html.mkdir(parents=True, exist_ok=True)
-
-if __name__ == "__main__":
+def genesis(reg: str):
+    # temporary_source_ag_hymnal_html = pgm_root / f"hymnal/temp/{reg}/html"
+    ag_hymnal_json = pgm_root / f"hymnal/{reg}"
+    # ag_hymnal_json.mkdir(parents=True, exist_ok=True)
+    output_ag_hymnal_html = pgm_root / f"dist/{reg}"
+    output_ag_hymnal_html.mkdir(parents=True, exist_ok=True)
     # html_to_json(temporary_source_ag_hymnal_html, ag_hymnal_json)
     json_to_html(ag_hymnal_json, output_ag_hymnal_html)
     copytree(
-        src=pgm_root / "hymnal/ag/styles",
-        dst=pgm_root / "dist/ag/styles",
+        src=pgm_root / f"hymnal/{reg}/styles",
+        dst=pgm_root / f"dist/{reg}/styles",
         dirs_exist_ok=True,
     )
     copytree(
-        src=pgm_root / "hymnal/ag/fonts",
-        dst=pgm_root / "dist/ag/fonts",
+        src=pgm_root / f"hymnal/{reg}/fonts",
+        dst=pgm_root / f"dist/{reg}/fonts",
         dirs_exist_ok=True,
     )
     (pgm_root / "dist/lib/reveal.js").mkdir(parents=True, exist_ok=True)
+
+
+if __name__ == "__main__":
+    pgm_root = Path(__file__).parent.parent
+    registers = ["ag", "yth"]
+    for reg in registers:
+        genesis(reg)
+
 
 # reason for using __name__ == '__main__'
 # ref: https://github.com/pallets/jinja/issues/1239#issuecomment-645231227
