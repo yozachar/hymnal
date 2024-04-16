@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>{{ hymn_number }} @ Athmeeya Geethangal</title>
+
+  <link rel="icon" type="image/svg+xml" href="{{ rel_path }}/svg/music.svg" />
+  <link rel="stylesheet" href="{{ rel_path }}/lib/reveal.js/dist/reset.css" />
+  <link rel="stylesheet" href="{{ rel_path }}/lib/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="{{ rel_path }}/css/song.css" />
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="{{ rel_path }}/lib/reveal.js/plugin/highlight/monokai.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        {% for sections in stanza_list %}
+        <section id="stanza-{{ loop.index }}">
+          <p class="stanza-no">{{ loop.index }}.</p>
+          {% for line in sections.lines %}
+          {{ ms_tag }}{{ line }}{{ me_tag }}
+          {% endfor %}
+        </section>
+        {% endfor %}
+      </section>
+      <section id="chorus" class="s-hymn">
+        <h1 class="hymn-no">{{ hymn_number }}</h1>
+        {% for line in chorus %}
+        {{ ss_tag }}{{ line }}{{ se_tag }}
+        {% endfor %}
+      </section>
+    </div>
+  </div>
+
+  <script src="{{ rel_path }}/lib/reveal.js/dist/reveal.js"></script>
+  <script src="{{ rel_path }}/lib/reveal.js/plugin/notes/notes.js"></script>
+  <script src="{{ rel_path }}/lib/reveal.js/plugin/markdown/markdown.js"></script>
+  <script src="{{ rel_path }}/lib/reveal.js/plugin/highlight/highlight.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      keyboardCondition: 'focused', // only react to keys when focused
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+    Reveal.slide(2, 1);
+  </script>
+</body>
+
+</html>
