@@ -1,30 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta itemprop="datePublished" content="2023-03-06" id="date" />
     <meta name="author" content="Jovial Joe Jayarson" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/images/music.svg" />
+    <link rel="icon" type="image/svg+xml" href="%sveltekit.assets%/favicon.svg" />
 
     <!-- OpenGraph -->
     <meta name="type" property="og:type" content="website" />
     <meta name="site_name" property="og:site_name" content="Hymnal" />
-    <meta
-      name="image"
-      property="og:image"
-      content="https://raw.githubusercontent.com/yozachar/hymnal/main/src/assets/images/cover.webp"
-    />
-    <meta
-      name="url"
-      property="og:url"
-      content="https://yozachar.github.io/hymnal/"
-    />
-    <meta
-      name="title"
-      property="og:title"
-      content="Multilingual Christian Songbook"
-    />
+    <meta name="image" property="og:image" content="%sveltekit.assets%/cover.webp" />
+    <meta name="url" property="og:url" content="https://yozachar.github.io/hymnal/" />
+    <meta name="title" property="og:title" content="Multilingual Christian Songbook" />
     <meta
       name="description"
       property="og:description"
@@ -34,11 +22,11 @@
     <!-- 𝕏/Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@yozachar" />
-    <title>Hymnal</title>
+
+    %sveltekit.head%
   </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents">%sveltekit.body%</div>
   </body>
 </html>
 
