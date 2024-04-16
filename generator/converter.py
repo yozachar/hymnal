@@ -4,9 +4,10 @@
 # -*- coding: utf-8 -*-
 
 # standard
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
+from pathlib import Path
 from typing import List
-from pprint import pprint
+from json import dump
 
 # external
 from bs4 import BeautifulSoup
@@ -33,25 +34,44 @@ class Hymn:
     stanzas: List[Stanza] = field(default_factory=list[Stanza])
 
 
-with open(file="generator/type3.html", mode="rt", encoding="utf-8") as html_file:
-    html_content = html_file.read()
+def song_parser(hymn_file: Path) -> Hymn:
+    """
+    Parse songs from reveal.js HTML files
+    """
 
-soup = BeautifulSoup(html_content, "lxml")
+    with open(file=hymn_file, mode="rt", encoding="utf-8") as _html_file:
+        _html_content = _html_file.read()
 
-hymn_no = int(hyn.text) if (hyn := soup.select_one("h1.hymn-no")) else -1
+    _soup = BeautifulSoup(_html_content, "lxml")
+    _hymn_no = int(_hyn.text) if (_hyn := _soup.select_one("h1.hymn-no")) else -1
+    hymn = Hymn(hymn_number=_hymn_no)
 
-hymn = Hymn(hymn_number=hymn_no)
+    for _stanza_section in _soup.select('section[id^="stanza-"]'):
+        _stanza_number = (
+            int(_szn.text.rstrip("."))
+            if (_szn := _stanza_section.select_one("p.stanza-no"))
+            else -1
+        )
+        _lines = [line.text.strip() for line in _stanza_section.select("h3")]
+        hymn.stanzas.append(Stanza(stanza_number=_stanza_number, lines=_lines))
 
-for stanza_section in soup.select('section[id^="stanza-"]'):
-    stanza_number = (
-        int(szn.text.rstrip("."))
-        if (szn := stanza_section.select_one("p.stanza-no"))
-        else -1
-    )
-    lines = [line.text for line in stanza_section.select("h3")]
-    hymn.stanzas.append(Stanza(stanza_number=stanza_number, lines=lines))
+    if (chorus_section := _soup.select_one('section[id^="chorus"]')) and (
+        _verses := chorus_section.select("em")
+    ):
+        hymn.chorus = [line.text.strip() for line in _verses]
 
-if chorus_section := soup.select_one('section[id^="chorus"]'):
-    hymn.chorus = [line.text for line in chorus_section.select("h3")]
+    return hymn
 
-pprint(hymn)
+
+ag_hymnal_dir = Path(__file__).parent.parent / "static/hymnal/ag"
+ag_hymnal_op = Path(__file__).parent / "out"
+
+for idx in range(1, 2001):
+    hymn_path = ag_hymnal_dir / f"{str(idx).zfill(4)}.html"
+    if hymn_path.exists() and hymn_path.is_file():
+        with open(
+            file=ag_hymnal_op / f"{str(idx).zfill(4)}.json", mode="wt", encoding="utf-8"
+        ) as ag_f:
+            dump(obj=asdict(song_parser(hymn_path)), fp=ag_f, ensure_ascii=False)
+
+# pprint(song_parser(ag_hymnal_dir / "0142.html"))
