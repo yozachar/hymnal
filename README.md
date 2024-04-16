@@ -53,3 +53,11 @@ Take down web-server.
 ```sh
 podman-compose -p hymnal -f ./compose.yaml down
 ```
+
+---
+
+<div style="text-align:center">
+
+[![AGPL-3.0](https://upload.wikimedia.org/wikipedia/commons/0/06/AGPLv3_Logo.svg)](https://wikipedia.org/wiki/GNU_Affero_General_Public_License)
+
+</div>
