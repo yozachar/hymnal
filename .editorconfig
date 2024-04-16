@@ -1,0 +1,19 @@
+# https://editorconfig.org/
+
+# top-most EditorConfig file
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+[*.{py,toml,json,yaml}]
+charset = utf-8
+
+[*.{toml,json,yaml}]
+indent_style = space
+indent_size = 2
+
+[*.py]
+indent_style = space
+indent_size = 4
