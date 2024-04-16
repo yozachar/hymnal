@@ -8,7 +8,7 @@ Just a hymnal.
 
 - Git
 - pnpm
-- Poetry
+- pdm
 - Python
 - Podman / Docker
 - Podman-Compose / Docker-Compose
@@ -23,7 +23,7 @@ cd hymnal
 ### Install dependencies
 
 ```sh
-pnpm install && poetry install
+pnpm install && pdm install
 ```
 
 ### Build & Deploy
@@ -39,9 +39,9 @@ pnpm install && poetry install
 Build project
 
 ```sh
-poetry shell
+eval $(pdm venv activate)
 pnpm build
-python hymnal/main.py
+python src/hymnal/main.py
 git clone --depth 1 "https://github.com/hakimel/reveal.js.git" dist/hymnal/lib/reveal.js
 ```
 
