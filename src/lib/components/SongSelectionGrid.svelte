@@ -20,7 +20,7 @@
 <div class="card-grid-container">
   <div class="card-container">
     {#each filteredCards as filteredSongs}
-      <a href="{base}/ag/{filteredSongs.padStart(4, '0')}.html">
+      <a href="{base}/g11n/mal/ag/v16/{filteredSongs.padStart(4, '0')}.html">
         <h3 class="song-number">{filteredSongs}</h3>
       </a>
     {/each}

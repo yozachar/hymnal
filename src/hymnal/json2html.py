@@ -46,7 +46,7 @@ def _json_song_parser(hymn_path: Path, hymnal_name: str):
     return cathedral.get_template(song_template).render(
         hymn_number=hymn.number,
         hymnal_name=hymnal_name,
-        relative_path="..",
+        relative_path="../../..",
         start_tag='<p class="line">',
         first_verse=hymn.verses[0] if hymn.verses else None,
         verses=hymn.verses if hymn.starts == "refrain" else hymn.verses[1:],
