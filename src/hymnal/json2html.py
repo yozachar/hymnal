@@ -33,7 +33,7 @@ def _json_song_parser(hymn_path: Path, hymnal_name: str):
         (
             "start-at-refrain-without-verses.html.j2"
             if not hymn.verses
-            else "start-at-refrain.html.j2"
+            else "start-at-refrain-with-verses.html.j2"
         )
         if hymn.starts == "refrain"
         else (
