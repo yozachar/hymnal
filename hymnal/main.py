@@ -161,16 +161,12 @@ def genesis(reg: str):
     output_ag_hymnal_html.mkdir(parents=True, exist_ok=True)
     # html_to_json(temporary_source_ag_hymnal_html, ag_hymnal_json)
     json_to_html(ag_hymnal_json, output_ag_hymnal_html)
-    copytree(
-        src=pgm_root / f"hymnal/{reg}/styles",
-        dst=pgm_root / f"dist/{reg}/styles",
-        dirs_exist_ok=True,
-    )
-    copytree(
-        src=pgm_root / f"hymnal/{reg}/fonts",
-        dst=pgm_root / f"dist/{reg}/fonts",
-        dirs_exist_ok=True,
-    )
+    for asset_dirs in ("styles", "fonts"):
+        copytree(
+            src=pgm_root / f"hymnal/{reg}/{asset_dirs}",
+            dst=pgm_root / f"dist/{reg}/{asset_dirs}",
+            dirs_exist_ok=True,
+        )
     (pgm_root / "dist/lib/reveal.js").mkdir(parents=True, exist_ok=True)
 
 
