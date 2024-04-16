@@ -18,8 +18,7 @@ rm -rf ./build/
 
 # build
 echo -e "${BLUE}==> Build & Generate${RESET}"
-pdm run python ./src/hymnal/main.py &&
-  pnpm build
+pnpm install && cargo run && pnpm build
 
 # preview
 pnpm preview

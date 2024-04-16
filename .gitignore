@@ -198,3 +198,9 @@ hymnal/temp/
 scripts/
 # songbook - related
 static/g11n/
+static/lib/reveal.js/
+db/
+bkp/
+
+# Added by cargo
+/target

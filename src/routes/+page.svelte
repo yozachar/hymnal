@@ -1,7 +1,7 @@
 <script lang="ts">
   import SongSelectionGrid from "$lib/components/SongSelectionGrid.svelte";
-  import "$lib/fonts/NotoSerifMalayalam/NotoSerifMalayalam.css";
-  import "$lib/styles/global.css";
+  import "../../static/fonts/NotoSerifMalayalam/NotoSerifMalayalam.css";
+  import "../../static/styles/global.css";
 </script>
 
 <svelte:head>
