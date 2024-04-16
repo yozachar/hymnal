@@ -191,3 +191,4 @@ vite.config.ts.timestamp-*
 
 # project
 hymnal/temp/
+scripts/
