@@ -8,10 +8,10 @@ YELLOW='\033[0;33m'
 BLUE='\033[0;34m'
 RESET='\033[0m'
 
-# check if a command exists
-command_exists() {
-  command -v "$1" >/dev/null 2>&1
-}
+# # check if a command exists
+# command_exists() {
+#   command -v "$1" >/dev/null 2>&1
+# }
 
 # cleanup
 rm -rf ./build/
